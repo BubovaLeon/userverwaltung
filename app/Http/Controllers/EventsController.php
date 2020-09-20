@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use DateTime;
 
 class EventsController extends Controller
 {
@@ -37,26 +38,20 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         /*
-        $rules = array(
-        'name'       => 'required',
-        'email'      => 'required|email',
-        'nerd_level' => 'required|numeric'
-        );
-        $validator = Validator::make(Input::all(), $rules);
-
-        if ($validator->fails()) {
-        return Redirect::to('events/create')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        } else {
-        $nerd = new Nerd;
-        $nerd->name       = Input::get('name');
-        $nerd->email      = Input::get('email');
-        $nerd->nerd_level = Input::get('nerd_level');
-        $nerd->save();
-
+        $request->validate([
+        'first_name'=>'required',
+        'last_name'=>'required',
+        'email'=>'required'
+        ]);
         */
-        //Session::flash('message', 'Event Created');
+
+        $event = new Event([
+        'title' => $request->get('title'),
+        'description' => $request->get('description'),
+        'datetime' => new DateTime,//$request->get('datetime'),
+        'duration' => 90//$request->get('duration'),
+        ]);
+        $event->save();
         return redirect()->route('events.index');
     }
 
