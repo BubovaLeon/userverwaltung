@@ -80,7 +80,7 @@
             @endif
 
             <div class="content">
-                
+                <h1>Welcome</h1>
             </div>
         </div>
     </body>
