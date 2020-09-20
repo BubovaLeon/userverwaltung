@@ -15,7 +15,7 @@ class EventsController extends Controller
     public function index()
     {
         $events = Event::all();
-        return view( 'events.index')->with('events', $events);
+        return view('events.index')->with('events', $events);
     }
 
     /**
@@ -25,7 +25,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        
+        return view('events.create');
     }
 
     /**
@@ -36,7 +36,28 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*
+        $rules = array(
+        'name'       => 'required',
+        'email'      => 'required|email',
+        'nerd_level' => 'required|numeric'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+        return Redirect::to('events/create')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+        $nerd = new Nerd;
+        $nerd->name       = Input::get('name');
+        $nerd->email      = Input::get('email');
+        $nerd->nerd_level = Input::get('nerd_level');
+        $nerd->save();
+
+        */
+        //Session::flash('message', 'Event Created');
+        return redirect()->route('events.index');
     }
 
     /**

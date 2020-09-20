@@ -8,20 +8,12 @@
                 <div class="card-header">Create Event</div>
 
                 <div class="card-body">
-                    <form action="{{ route('admin.users.update', $user) }}" method="POST">
-                        @csrf
-                        {{ method_field('PUT') }}
-                        @foreach($roles as $role)
-                            <div class="form-check">
-                                <input type="radio" name="roles[]" value="{{ $role->id }}"
-                                @if($user->roles->pluck('id')->contains($role->id)) checked @endif>
-                                <label>{{ $role->name }}</label>
-                            </div>
-                        @endforeach
-                        <button type="submit" class="btn btn-primary">
-                        Update
-                        </button>
-                    </form> 
+                        <form action="{{ route('events.store') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">
+                                Create Event
+                                </button>
+                        </form> 
                 </div>
             </div>
         </div>
