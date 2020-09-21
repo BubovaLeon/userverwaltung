@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DateTime;
 
 class EventsController extends Controller
@@ -37,19 +38,21 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        /*
+        
         $request->validate([
-        'first_name'=>'required',
-        'last_name'=>'required',
-        'email'=>'required'
+        'title'=> ['required', 'string'],
+        'description'=>['required', 'string'],
+        'datetime'=>'required',
+        'duration'=> ['required', 'integer'],
         ]);
-        */
-
+        
+        $user = Auth::user();
         $event = new Event([
         'title' => $request->get('title'),
         'description' => $request->get('description'),
         'datetime' => new DateTime,//$request->get('datetime'),
-        'duration' => 90//$request->get('duration'),
+        'duration' => $request->get('duration'),
+        'creator' => $user->name
         ]);
         $event->save();
         return redirect()->route('events.index');

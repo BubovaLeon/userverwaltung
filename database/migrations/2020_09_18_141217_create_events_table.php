@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('description');
             $table->dateTime('datetime');
             $table->integer('duration')->unsigned();
+            $table->string('creator');
             $table->timestamps();
         });
     }

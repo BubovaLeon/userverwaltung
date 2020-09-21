@@ -11,6 +11,10 @@ class Event extends Model
     }
 
     protected $fillable = [
-        'title', 'description', 'datetime', 'duration'
+        'title', 'description', 'datetime', 'duration', 'creator'
+    ];
+
+    protected $casts = [
+            'duration' => 'integer',
     ];
 }
