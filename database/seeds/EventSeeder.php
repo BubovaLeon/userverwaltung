@@ -16,7 +16,7 @@ class EventSeeder extends Seeder
                 'description' => 'Example Meetup',
                 'datetime' => new DateTime,
                 'duration' => 90,
-                'creator' => 'admin',
+                'creator' => 'Admin User',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime
             ]);
@@ -25,8 +25,8 @@ class EventSeeder extends Seeder
                 'title' => 'Sports',
                 'description' => 'Sports Meetup',
                 'datetime' => new DateTime,
-                'duration' => 90,
-                'creator' => 'admin',
+                'duration' => 45,
+                'creator' => 'Admin User',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime
             ]);
